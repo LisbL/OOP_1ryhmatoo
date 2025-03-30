@@ -15,8 +15,23 @@ get- ja set-meetodeid ja teisi vajalikke meetodeid.
 - Kasutajaga suhtlemine peaks olema väga elementaarselt kujundatud.
  */
 
+import java.util.Scanner;
+
 public class test {
     public static void main(String[] args) {
-        System.out.println("mmm Monke");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Vali draakon :)");
+        System.out.println("Tuledraakon - 1");
+        System.out.println("Maadraakon - 2");
+        System.out.println("Veedraakon - 3");
+
+        int valik = sc.nextInt();
+        switch (valik) {
+            case 1:
+                Tuledraakon tuledraakon = new Tuledraakon("Tuledraakon");
+                System.out.println("Valitud: " + tuledraakon);
+        }
+        Täring täring = new Täring(1, 6);
+        täring.viska();
     }
 }
