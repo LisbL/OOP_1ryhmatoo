@@ -26,11 +26,16 @@ public class test {
         System.out.println("Veedraakon - 3");
 
         int valik = sc.nextInt();
-        switch (valik) {
-            case 1:
-                Tuledraakon tuledraakon = new Tuledraakon("Tuledraakon");
-                System.out.println("Valitud: " + tuledraakon);
+        if (valik == 1) {
+            Tuledraakon tuledraakon = new Tuledraakon("Tuledraakon");
+            System.out.println("Valitud: " + tuledraakon);
+            while (true) {
+                if (tuledraakon.läksMagama(tuledraakon.getHP())) {
+                    break;
+                }
+            }
         }
+
         Täring täring = new Täring(1, 6);
         täring.viska();
     }

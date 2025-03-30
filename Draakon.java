@@ -14,7 +14,7 @@ public class Draakon {
     }
 
     public void ründa() {
-        
+        System.out.println(nimi + " möirgab!");
     }
 
     public String toString() {
