@@ -25,14 +25,19 @@ public class test {
         System.out.println("Veedraakon - 2");
         System.out.println("Maadraakon - 3");
 
+        ErilineKäik tulepall = new ErilineKäik("Tulepall", 15);
+        ErilineKäik purskkaev = new ErilineKäik("Purskkaev", 20);
+        ErilineKäik maavärin = new ErilineKäik("Maavärin", 14);
+        Täring täring = new Täring(1, 6);
+
         Draakon[] draakonid = {
-                new Draakon("Tuledraakon", 10, 100),
-                new Draakon("Veedraakon", 15, 85 ),
-                new Draakon("Maadraakon", 7, 120)
+                new Draakon("Tuledraakon", 10, 100, tulepall, täring),
+                new Draakon("Veedraakon", 15, 85, purskkaev, täring),
+                new Draakon("Maadraakon", 7, 120, maavärin, täring)
         };
         int valik = sc.nextInt() - 1;
         Draakon mängija = draakonid[valik];
-        Draakon vastane = new Draakon("MONKE 2000",5, 105);
+        Draakon vastane = new Draakon("MONKE 2000",5, 105, new ErilineKäik("Banaani vise", 12), täring);
         while (true) {
             if (mängija.läksMagama()) {
                 System.out.println(vastane + " kukkus kokku!");
@@ -46,8 +51,5 @@ public class test {
             mängija.ründa(vastane);
             vastane.ründa(mängija);
         }
-
-        Täring täring = new Täring(1, 6);
-        täring.viska();
     }
 }
