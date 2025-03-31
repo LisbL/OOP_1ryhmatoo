@@ -22,18 +22,29 @@ public class test {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vali draakon :)");
         System.out.println("Tuledraakon - 1");
-        System.out.println("Maadraakon - 2");
-        System.out.println("Veedraakon - 3");
+        System.out.println("Veedraakon - 2");
+        System.out.println("Maadraakon - 3");
 
-        int valik = sc.nextInt();
-        if (valik == 1) {
-            Tuledraakon tuledraakon = new Tuledraakon("Tuledraakon");
-            System.out.println("Valitud: " + tuledraakon);
-            while (true) {
-                if (tuledraakon.läksMagama(tuledraakon.getHP())) {
-                    break;
-                }
+        Draakon[] draakonid = {
+                new Draakon("Tuledraakon", 10, 100),
+                new Draakon("Veedraakon", 15, 85 ),
+                new Draakon("Maadraakon", 7, 120)
+        };
+        int valik = sc.nextInt() - 1;
+        Draakon mängija = draakonid[valik];
+        Draakon vastane = new Draakon("MONKE 2000",5, 105);
+        while (true) {
+            if (mängija.läksMagama()) {
+                System.out.println(vastane + " kukkus kokku!");
+                System.out.println(mängija + " võitis!");
+                break;
+            } else if (vastane.läksMagama()) {
+                System.out.println(mängija + " kukkus kokku!");
+                System.out.println(vastane + " võitis!");
+                break;
             }
+            mängija.ründa(vastane);
+            vastane.ründa(mängija);
         }
 
         Täring täring = new Täring(1, 6);

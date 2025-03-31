@@ -1,3 +1,3 @@
 public interface Ded {
-    boolean läksMagama(int HP);
+    void ründa(Draakon vastane);
 }
