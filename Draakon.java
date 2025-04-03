@@ -25,16 +25,15 @@ public class Draakon implements Ded {
         return dmg;
     }
 
-    public void setDmg(int dmg) {
-        this.dmg = dmg;
-    }
-
     public int getHP() {
         return HP;
     }
+
     public void setHP(int HP) {
         this.HP = HP;
     }
+
+    public ErilineKäik getErilineKäik() { return erilineKäik; }
 
     public void möirga() {
         System.out.println(nimi + " möirgab!");

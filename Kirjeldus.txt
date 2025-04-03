@@ -1,1 +1,3 @@
 Projekti koostasid Nils Jaagup Peters ja Lisbeth Lepp.
+See on meelelahutuslik mäng, kus mängija peab valima draakoni ning võitlema
+arvuti draakoni vastu. Võitluses mängivad rolli inimese otsused ja juhus.

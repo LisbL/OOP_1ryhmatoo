@@ -25,10 +25,12 @@ public class test {
         System.out.println("Veedraakon - 2");
         System.out.println("Maadraakon - 3");
 
-        ErilineKäik tulepall = new ErilineKäik("Tulepall", 15);
-        ErilineKäik purskkaev = new ErilineKäik("Purskkaev", 20);
-        ErilineKäik maavärin = new ErilineKäik("Maavärin", 14);
         Täring täring = new Täring(1, 6);
+
+        ErilineKäik tulepall = new ErilineKäik("Tulepall", 15,täring);
+        ErilineKäik purskkaev = new ErilineKäik("Purskkaev", 20, täring);
+        ErilineKäik maavärin = new ErilineKäik("Maavärin", 14, täring);
+
 
         Draakon[] draakonid = {
                 new Draakon("Tuledraakon", 10, 100, tulepall, täring),
@@ -37,19 +39,35 @@ public class test {
         };
         int valik = sc.nextInt() - 1;
         Draakon mängija = draakonid[valik];
-        Draakon vastane = new Draakon("MONKE 2000",5, 105, new ErilineKäik("Banaani vise", 12), täring);
-        while (true) {
+        Draakon vastane = new Draakon("MONKE 2000",5, 105, new ErilineKäik("Banaani vise", 12, täring), täring);
+
+        // Põhimäng
+        while (!mängija.läksMagama() && !vastane.läksMagama()) {
+            MängijaKord(mängija);
+            valik = sc.nextInt();
+
+            if (valik == 1) {
+                mängija.ründa(vastane);
+            } else if (valik == 2) {
+                mängija.kasutaErilistKäiku(vastane);
+            } else {
+                System.out.println("Sellist valikut pole olemas! Käik jääb vahele.");
+            }
+
             if (mängija.läksMagama()) {
-                System.out.println(vastane + " kukkus kokku!");
-                System.out.println(mängija + " võitis!");
-                break;
-            } else if (vastane.läksMagama()) {
                 System.out.println(mängija + " kukkus kokku!");
                 System.out.println(vastane + " võitis!");
-                break;
             }
-            mängija.ründa(vastane);
-            vastane.ründa(mängija);
+            if (vastane.läksMagama()) {
+                System.out.println(vastane + " kukkus kokku!");
+                System.out.println(mängija + " võitis!");
+            }
         }
+    }
+
+    public static void MängijaKord(Draakon p) {
+        System.out.println("Vali tegevus: ");
+        System.out.println("Ründa - 1");
+        System.out.println("Supervõime (" + p.getErilineKäik() + ") - 2");
     }
 }

@@ -3,9 +3,10 @@ public class ErilineKäik {
     private int baasDMG;
     private Täring täring;
 
-    public ErilineKäik(String nimetus, int baasDMG) {
+    public ErilineKäik(String nimetus, int baasDMG, Täring täring) {
         this.nimetus = nimetus;
         this.baasDMG = baasDMG;
+        this.täring = täring;
     }
 
     public void kasuta(Draakon p1, Draakon p2) {
@@ -17,6 +18,11 @@ public class ErilineKäik {
         System.out.println(p1 + " kasutab supervõimet " + nimetus + p2 + " vastu!");
         System.out.println("Täringuvise andis: " + täring.getVisatud());
         System.out.println(p2 + " kaotas " + lõppDMG + " HP-d.");
+        if (p2.läksMagama()) {
+            p2.setHP(0);
+        } else {
+            System.out.println(p2 + " jäi järgi " + p2.getHP() + " HP-d");
+        }
         try {
             Thread.sleep(2000); // paus enne järgmist tegevust
         } catch (InterruptedException e) {
@@ -32,5 +38,10 @@ public class ErilineKäik {
             case 6 -> 2.0; // kriitiline
             default -> 1.0;
         };
+    }
+
+    @Override
+    public String toString() {
+        return nimetus;
     }
 }
