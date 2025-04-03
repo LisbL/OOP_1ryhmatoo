@@ -1,3 +1,17 @@
 Projekti koostasid Nils Jaagup Peters ja Lisbeth Lepp.
 See on meelelahutuslik mäng, kus mängija peab valima draakoni ning võitlema
 arvuti draakoni vastu. Võitluses mängivad rolli inimese otsused ja juhus.
+
+- Klass Põhimäng on klass, kus paikneb mängu-tsükli põhiline osa ja sisaldab meetode
+mängija ja vastase käikudeks.
+- Klassi Draakoni eesmärk on draakoni baasiks,
+kus määratakse tema atribuudid. Tähtsamad meetodid on ründa(), mis teeb vähem haiget
+vastasele, ja kasutaErilistKäiku(), mis teeb rohkem haiget, aga kasutab energiat, mille
+pärast ei saa seda kogu aeg kasutada.
+- Klass ErilineKäik on abiks raskema löögi vormistamisel. See kasutab klassi Täring,
+et saada löögi jaoks vajalik kordaja, mis muudab lõpliku löögi tugevust.
+- Klass Täring on abiks suvalise kordaja saamiseks. Põhifunktsioon on viska(), mis
+genereerib suvalise numbri vahemikus 1-6.
+
+Mõlemad rühmaliikmed tegutsesid, et projekt valmis saaks. Kordamööda vaatasime
+üksteise koodid üle

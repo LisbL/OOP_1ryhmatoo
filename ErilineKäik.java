@@ -15,7 +15,7 @@ public class ErilineKäik {
         int lõppDMG = (int) (kordaja * baasDMG);
         p2.setHP(p2.getHP() - lõppDMG);
 
-        System.out.println(p1 + " kasutab supervõimet " + nimetus + p2 + " vastu!");
+        System.out.println(p1 + " kasutab supervõimet " + nimetus + " " + p2 + " vastu!");
         System.out.println("Täringuvise andis: " + täring.getVisatud());
         System.out.println(p2 + " kaotas " + lõppDMG + " HP-d.");
         if (p2.läksMagama()) {

@@ -1,7 +1,8 @@
-public class Draakon implements Ded {
+public class Draakon {
     private String nimi;
     private int dmg;
     private int HP;
+    private int energia;
     private ErilineKäik erilineKäik;
     private Täring täring;
 
@@ -11,6 +12,7 @@ public class Draakon implements Ded {
         this.dmg = dmg;
         this.erilineKäik = erilineKäik;
         this.täring = täring;
+        this.energia = 60;
     }
 
     public String getNimi() {
@@ -39,7 +41,6 @@ public class Draakon implements Ded {
         System.out.println(nimi + " möirgab!");
     }
 
-    @Override
     public void ründa(Draakon vastane) {
         täring.viska();
         double kordaja = getKordaja(täring.getVisatud());
@@ -49,6 +50,11 @@ public class Draakon implements Ded {
         System.out.println(nimi + " ründab vastast " + vastane.getNimi());
         System.out.println("Täring andis: " + täring.getVisatud());
         System.out.println(vastane + " kaotas " + lõppDMG + " HP-d");
+        if (vastane.läksMagama()) {
+            vastane.setHP(0);
+        } else {
+            System.out.println(vastane + " jäi järgi " + vastane.getHP() + " HP-d");
+        }
         try {
             Thread.sleep(2000); // paus enne järgmist tegevust
         } catch (InterruptedException e) {
@@ -57,7 +63,13 @@ public class Draakon implements Ded {
     }
 
     public void kasutaErilistKäiku(Draakon vastane) {
-        erilineKäik.kasuta(this, vastane);
+        if (energia > 0) {
+            erilineKäik.kasuta(this, vastane);
+            energia -= 20;
+        } else {
+            System.out.println("Pole piisavalt energiat.");
+        }
+
     }
 
     private double getKordaja(int roll) {

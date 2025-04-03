@@ -17,7 +17,7 @@ get- ja set-meetodeid ja teisi vajalikke meetodeid.
 
 import java.util.Scanner;
 
-public class test {
+public class Põhimäng {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vali draakon :)");
@@ -43,9 +43,9 @@ public class test {
 
         // Põhimäng
         while (!mängija.läksMagama() && !vastane.läksMagama()) {
+            // Mängija kord
             MängijaKord(mängija);
             valik = sc.nextInt();
-
             if (valik == 1) {
                 mängija.ründa(vastane);
             } else if (valik == 2) {
@@ -53,16 +53,29 @@ public class test {
             } else {
                 System.out.println("Sellist valikut pole olemas! Käik jääb vahele.");
             }
-
-            if (mängija.läksMagama()) {
-                System.out.println(mängija + " kukkus kokku!");
-                System.out.println(vastane + " võitis!");
-            }
+            // Kontroll, kas mängija võitis
             if (vastane.läksMagama()) {
-                System.out.println(vastane + " kukkus kokku!");
-                System.out.println(mängija + " võitis!");
+                System.out.println(vastane + " kukkus kokku! Sa võitsid!!!");
+                break;
             }
+
+            //Arvuti kord
+            System.out.println(vastane + "kord...");
+            int valik2 = (Math.random() < 0.5) ? 1 : 2;
+
+            if (valik2 == 1) {
+                vastane.ründa(mängija);
+            } else {
+                vastane.kasutaErilistKäiku(mängija);
+            }
+            // Kontroll, kas mängija suri
+            if (mängija.läksMagama()) {
+                System.out.println(mängija + " kukkus kokku! Sa kaotasid! :(");
+                break;
+            }
+            System.out.println("--- Uus käik ---");
         }
+        sc.close();
     }
 
     public static void MängijaKord(Draakon p) {
