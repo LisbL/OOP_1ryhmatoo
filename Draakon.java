@@ -37,11 +37,7 @@ public class Draakon {
 
     public ErilineKäik getErilineKäik() { return erilineKäik; }
 
-    public void möirga() {
-        System.out.println(nimi + " möirgab!");
-    }
-
-    public void ründa(Draakon vastane) {
+    public void ründa(Draakon vastane) { //Tavaline löök
         täring.viska();
         double kordaja = getKordaja(täring.getVisatud());
         int lõppDMG = (int) (kordaja * getDmg());
@@ -62,8 +58,8 @@ public class Draakon {
         }
     }
 
-    public void kasutaErilistKäiku(Draakon vastane) {
-        if (energia > 0) {
+    public void kasutaErilistKäiku(Draakon vastane) { // Eriline löök
+        if (energia > 0) { //Kui on piisavalt energiat, siis töötab
             erilineKäik.kasuta(this, vastane);
             energia -= 20;
         } else {
@@ -72,7 +68,7 @@ public class Draakon {
 
     }
 
-    private double getKordaja(int roll) {
+    private double getKordaja(int roll) { // Kordaja saamine täringu viskest
         return switch (roll) {
             case 1 -> 0.5;
             case 2, 3 -> 1.0;
@@ -82,7 +78,7 @@ public class Draakon {
         };
     }
 
-    public boolean läksMagama() {
+    public boolean läksMagama() { //Juhul kui elud said otsa
         if (this.getHP() <= 0) {
             return true;
         }

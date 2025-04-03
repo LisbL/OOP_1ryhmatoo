@@ -26,5 +26,15 @@ Lisbeth kirjutas klassi Draakon ja Nils kirjutas klassi ErilineKäik. Koos kirju
 ja vaatasid üle klassi Põhimäng ning Täringu. Orienteeruvalt kulus mõlemal umbes
 4-5 tundi.
 
-Otseselt 
+Otseselt ei tekkinud suuri murekohti projekti tegemisel. Pigem tekkisid väiksemad,
+mille sai ületatud mõne minutiga. Näiteks kuidas anda mängijale võimaluse
+valida mitme draakoni seast, või kuidas panna mõned pausid tegevuste vahele.
 
+Mänguga oleme rahul, aga siiski on arenguruumi. Näiteks võiks draakonitele lisada
+veel erinevaid võimeid. Veel üks mõte on lisada rohkem erinevaid vaenlasi,
+kelle seast arvuti võib valida. võiks lisada ka pikema lahingu variandi, kus tuleb
+rohkem vaenlasi ühes võitluses.
+
+Erinevate koodilõikude testimiseks lõimegi põhiklassi ehk põhimäng. Seal saime
+käivitada erinevaid hetk tagasi loodud meetode, et kontrollida, kas nad korrektselt
+töötavad.

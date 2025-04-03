@@ -10,7 +10,7 @@ public class ErilineKäik {
     }
 
     public void kasuta(Draakon p1, Draakon p2) {
-        täring.viska();
+        täring.viska(); //juhusliku numbri saamine, sellest löögikordaja tegemine
         double kordaja = getKordaja(täring.getVisatud());
         int lõppDMG = (int) (kordaja * baasDMG);
         p2.setHP(p2.getHP() - lõppDMG);
@@ -30,7 +30,7 @@ public class ErilineKäik {
         }
     }
 
-    public double getKordaja(int roll) {
+    public double getKordaja(int roll) { //Täringust saadud numbri konverteerimine
         return switch (roll) {
             case 1 -> 0.5; // nõrk
             case 2, 3 -> 1.0; // tavaline
